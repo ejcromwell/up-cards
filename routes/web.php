@@ -17,6 +17,7 @@ Route::get('/', function () {
 
     $deck = new Deck();
     $deck_of_cards = $deck->ordered_deck();
+    $shuffled_cards = $deck->shuffled_deck();
     //return view('welcome', compact('card_suites', 'card_values', 'deck_of_cards'));
-    return view('welcome', compact('deck_of_cards'));
+    return view('welcome', compact('deck_of_cards', 'shuffled_cards'));
 });

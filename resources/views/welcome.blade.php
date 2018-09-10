@@ -20,16 +20,26 @@
         <main class="container pt-5">
             <section class="colour-count pt-3">
                 <h2>Order Deck of Cards</h2>
+
                 @foreach ($deck_of_cards as $card)
 
                 {{ $card->suit }}
                 {{ $card->value }}
 
                 @endforeach
+
             </section>
 
             <section class="motorbike-owners pt-3">
                 <h2>Shuffled Deck Of Cards</h2>
+
+                @foreach ($shuffled_cards as $card)
+
+                {{ $card->suit }}
+                {{ $card->value }}
+
+                @endforeach
+
             </section>
         </main>
     </body>

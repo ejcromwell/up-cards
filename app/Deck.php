@@ -26,10 +26,7 @@ class Deck extends Model
         $output = [];
         foreach ($suits as $suit) {
             foreach ($values as $value) {
-                // $card = new Card($suit, $value);
-                // array_push($this->deck_of_cards, $card);
                 $output[] = new Card($suit, $value);
-                // $this->deck_of_cards = $card;
             }
         }
 
@@ -38,7 +35,16 @@ class Deck extends Model
 
     public function ordered_deck()
     {
-        // dd($this->deck_of_cards);
-        return $this->deck_of_cards;
+        $output = $this->deck_of_cards;
+        return $output;
+    }
+
+
+    public function shuffled_deck()
+    {
+        $shuffled_deck = $this->deck_of_cards;
+        shuffle($shuffled_deck);
+        $output = $shuffled_deck;
+        return $output;
     }
 }
