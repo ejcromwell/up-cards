@@ -68,6 +68,10 @@ class Deck extends Model
      * Break up the deck of cards into there respective
      * suits.
      *
+     * I was unable to recreate the same output using a foreach
+     * in a separate function call. Hence while the duplicate
+     * code.
+     *
      * @return arr    nested asc array of card suits.
      **/
     private function get_suit($cards)
