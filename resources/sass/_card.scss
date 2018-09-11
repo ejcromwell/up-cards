@@ -1,19 +1,30 @@
 .card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 6.8%;
+  height: 100px;
   font-family: $font-family-serif;
-  width: 7.5%;
+  padding: 5px;
+  margin-right: .5%;
+  margin-bottom: 1%;
+  background-color: lighten(#f0ead6, 8%);
 }
 
-
 .card-suit-top {
+  align-self: flex-start;
   width: 100%;
   text-align: left;
 }
 
 .card-value {
+  align-self: center;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .card-suit-bottom {
   width: 100%;
+  align-self: flex-end;
   text-align: right;
 }
