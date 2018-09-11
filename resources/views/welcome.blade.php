@@ -41,6 +41,18 @@
                 @endforeach
 
             </section>
+
+            <section class="motorbike-owners pt-3">
+                <h2>Reordered Deck Of Cards</h2>
+                @foreach ($reordered_cards as $card)
+
+                {{ $card->suit }}
+                {{ $card->value }}
+
+                @endforeach
+
+            </section>
+
         </main>
     </body>
 </html>

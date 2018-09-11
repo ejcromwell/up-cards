@@ -9,6 +9,7 @@ class Card extends Model
     public $suit;
     public $value;
 
+
     public function __construct($suit, $value)
     {
         $this->suit  = $suit;
