@@ -10471,7 +10471,18 @@ a.text-dark:focus {
   }
 }
 
-.card-section {
+.card-section-title {
+  display: block;
+  width: 100%;
+}
+
+.card-section-btn {
+  display: block;
+  max-width: 250px;
+  margin-bottom: 20px;
+}
+
+.card-wrap {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -10481,11 +10492,6 @@ a.text-dark:focus {
           flex-direction: row;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-}
-
-.card-section-title {
-  display: block;
-  width: 100%;
 }
 
 .card {
