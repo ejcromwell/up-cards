@@ -21,7 +21,6 @@ class Deck extends Model
         $card_values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
         $this->deck_of_cards = $this->build_deck($card_suites, $card_values);
-
     }
 
     /**
@@ -59,7 +58,7 @@ class Deck extends Model
      *
      * @return   arr
      **/
-    public function shuffled_deck($deck_of_cards)
+    public function shuffle_deck($deck_of_cards)
     {
         shuffle($deck_of_cards);
         return $deck_of_cards;
