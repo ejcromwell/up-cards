@@ -21,8 +21,7 @@
 
         @foreach ($shuffled_cards as $card)
 
-        {{ $card->suit }}
-        {{ $card->value }}
+            @include('partials.card')
 
         @endforeach
 
@@ -31,10 +30,10 @@
     <section class="card-section pt-5">
 
         <h2 class="card-section-title">Reordered Deck Of Cards</h2>
+
         @foreach ($reordered_cards as $card)
 
-        {{ $card->suit }}
-        {{ $card->value }}
+            @include('partials.card')
 
         @endforeach
 

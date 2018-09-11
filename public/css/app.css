@@ -10499,13 +10499,26 @@ a.text-dark:focus {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  width: 6.8%;
+  width: 100px;
   height: 100px;
   font-family: "Great Vibes", cursive;
   padding: 5px;
-  margin-right: .5%;
+  margin-right: 5px;
   margin-bottom: 1%;
   background-color: #fbf9f4;
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 12%;
+    margin-right: .5%;
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: 6.8%;
+  }
 }
 
 .card-suit-top {

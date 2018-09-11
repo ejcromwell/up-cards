@@ -2,13 +2,21 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 6.8%;
+  width: 100px;
   height: 100px;
   font-family: $font-family-serif;
   padding: 5px;
-  margin-right: .5%;
+  margin-right: 5px;
   margin-bottom: 1%;
   background-color: lighten(#f0ead6, 8%);
+  @include media-breakpoint-up(md) {
+    width: 12%;
+    margin-right: .5%;
+  }
+
+  @include media-breakpoint-up(lg) {
+    width: 6.8%;
+  }
 }
 
 .card-suit-top {
