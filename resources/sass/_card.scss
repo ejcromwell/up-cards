@@ -1,0 +1,19 @@
+.card {
+  font-family: $font-family-serif;
+  width: 7.5%;
+}
+
+
+.card-suit-top {
+  width: 100%;
+  text-align: left;
+}
+
+.card-value {
+  text-align: center;
+}
+
+.card-suit-bottom {
+  width: 100%;
+  text-align: right;
+}
