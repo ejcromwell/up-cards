@@ -1,0 +1,47 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100px;
+  height: 100px;
+  font-family: $font-family-serif;
+  opacity: 0;
+  animation: cardOpacity .8s ease-out 0s 1 normal forwards;
+  padding: 5px;
+  margin-right: 5px;
+  margin-bottom: 1%;
+  background-image: linear-gradient(to left, lighten(#f0ead6, 5%) 0%, lighten(#f0ead6, 5%) 50%, #f0ead6 50%,#f0ead6 100%);
+  @include media-breakpoint-up(md) {
+    width: 12%;
+    margin-right: .5%;
+  }
+  @include media-breakpoint-up(lg) {
+    width: 6.8%;
+  }
+}
+
+.card-suit-top {
+  align-self: flex-start;
+  width: 100%;
+  text-align: left;
+}
+
+.card-value {
+  align-self: center;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  text-transform: uppercase;
+  transform: rotate(-50deg);
+}
+
+.card-suit-bottom {
+  width: 100%;
+  align-self: flex-end;
+  text-align: right;
+}
+
+@keyframes cardOpacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
