@@ -10507,7 +10507,10 @@ a.text-dark:focus {
           justify-content: space-between;
   width: 100px;
   height: 100px;
-  font-family: "Great Vibes", cursive;
+  font-family: "Cormorant Unicase", serif;
+  opacity: 0;
+  -webkit-animation: cardOpacity .8s ease-out 0s 1 normal forwards;
+          animation: cardOpacity .8s ease-out 0s 1 normal forwards;
   padding: 5px;
   margin-right: 5px;
   margin-bottom: 1%;
@@ -10538,8 +10541,12 @@ a.text-dark:focus {
 .card-value {
   -ms-flex-item-align: center;
       align-self: center;
+  font-size: 12px;
+  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
+  -webkit-transform: rotate(-50deg);
+          transform: rotate(-50deg);
 }
 
 .card-suit-bottom {
@@ -10547,5 +10554,25 @@ a.text-dark:focus {
   -ms-flex-item-align: end;
       align-self: flex-end;
   text-align: right;
+}
+
+@-webkit-keyframes cardOpacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes cardOpacity {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 

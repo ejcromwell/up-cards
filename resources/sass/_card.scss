@@ -5,6 +5,8 @@
   width: 100px;
   height: 100px;
   font-family: $font-family-serif;
+  opacity: 0;
+  animation: cardOpacity .8s ease-out 0s 1 normal forwards;
   padding: 5px;
   margin-right: 5px;
   margin-bottom: 1%;
@@ -13,7 +15,6 @@
     width: 12%;
     margin-right: .5%;
   }
-
   @include media-breakpoint-up(lg) {
     width: 6.8%;
   }
@@ -27,12 +28,20 @@
 
 .card-value {
   align-self: center;
+  font-size: 12px;
+  font-weight: bold;
   text-align: center;
   text-transform: uppercase;
+  transform: rotate(-50deg);
 }
 
 .card-suit-bottom {
   width: 100%;
   align-self: flex-end;
   text-align: right;
+}
+
+@keyframes cardOpacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
 }
