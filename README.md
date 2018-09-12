@@ -7,8 +7,7 @@ Build steps:
 1) Setup new local Laravel project.
 2) Clone repo.
 3) Set local .env file config.
-4) run `npm run production` to build styles and scripts
-6) Run on local web server.
+4) Run on local web server.
 
 The first section shows an ordered deck of cards from a an Deck object.
 
