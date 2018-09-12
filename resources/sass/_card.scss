@@ -10,7 +10,7 @@
   padding: 5px;
   margin-right: 5px;
   margin-bottom: 1%;
-  background-image: linear-gradient(left top, lighten(#f0ead6, 5%) 0%, lighten(#f0ead6, 5%) 50%, #f0ead6 50%,#f0ead6 100%);
+  background-image: linear-gradient(to left, lighten(#f0ead6, 5%) 0%, lighten(#f0ead6, 5%) 50%, #f0ead6 50%,#f0ead6 100%);
   @include media-breakpoint-up(md) {
     width: 12%;
     margin-right: .5%;
