@@ -10,6 +10,10 @@ class Deck extends Model
     protected $deck_of_cards;
 
 
+    /**
+     * Build our deck of cards on class instance
+     *
+     **/
     public function __construct()
     {
 
@@ -17,9 +21,13 @@ class Deck extends Model
         $card_values = ['A', '2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K'];
 
         $this->deck_of_cards = $this->build_deck($card_suites, $card_values);
-
     }
 
+    /**
+     * Build a deck of cards using the Card object
+     *
+     * @return arr
+     **/
     private function build_deck($suits, $values)
     {
 
@@ -33,6 +41,11 @@ class Deck extends Model
         return $output;
     }
 
+    /**
+     * Get the deck object array
+     *
+     * @return arr
+     **/
     public function get_fresh_deck()
     {
         $output = $this->deck_of_cards;
@@ -40,19 +53,30 @@ class Deck extends Model
     }
 
 
-    public function shuffled_deck()
+    /**
+     * Shuffle the deck array.
+     *
+     * @return   arr
+     **/
+    public function shuffle_deck($deck_of_cards)
     {
-        $shuffled_deck = $this->deck_of_cards;
-        shuffle($shuffled_deck);
-        $output = $shuffled_deck;
-        return $output;
+        shuffle($deck_of_cards);
+        return $deck_of_cards;
     }
 
-
+    /**
+     * Break up the deck of cards into there respective
+     * suits.
+     *
+     * I was unable to recreate the same output using a foreach
+     * in a separate function call. Hence while the duplicate
+     * code.
+     *
+     * @return arr    nested asc array of card suits.
+     **/
     private function get_suit($cards)
     {
         $output = [];
-
 
         $output['Clubs'] = array_filter($cards, function($a) {
             if ($a->suit === 'Clubs') {
@@ -86,6 +110,15 @@ class Deck extends Model
         return $output;
     }
 
+    /**
+     * Move the ace from its sort position to the front of the array.
+     *
+     * Using the array position created by the sort function to
+     * target the element in the array and move to begining of
+     * array.
+     *
+     * @return obj
+     **/
     private function reorder_ace($suit)
     {
         $ace = array_slice($suit, 9, 1);
@@ -96,6 +129,16 @@ class Deck extends Model
 
     }
 
+    /**
+     * Order the non numeric and non A cards in correct playing
+     * card format.
+     *
+     * Using the array position created by the sort function to
+     * target the element in the array and find position to
+     * splice back into the array.
+     *
+     * @return arr
+     **/
     private function order_face_cards($suit)
     {
 
@@ -111,31 +154,52 @@ class Deck extends Model
             return $a[0];
         }, $face_cards);
 
-
         array_splice($suit, 10, 3, $face_cards_clean);
 
         return $suit;
-
     }
 
+    /**
+     * Combining and merging all filtered arrays back into a single
+     * object array of Cards. Now in the same order as first created.
+     *
+     * @return arr
+     **/
     public function order_deck($cards)
     {
         $suits = $this->get_suit($cards);
 
         $suits_ace = [];
-        $suits_ace['Clubs'] = $this->reorder_ace($suits['Clubs']);
+        $suits_ace['Clubs']    = $this->reorder_ace($suits['Clubs']);
         $suits_ace['Diamonds'] = $this->reorder_ace($suits['Diamonds']);
-        $suits_ace['Spades'] = $this->reorder_ace($suits['Spades']);
-        $suits_ace['Hearts'] = $this->reorder_ace($suits['Hearts']);
+        $suits_ace['Spades']   = $this->reorder_ace($suits['Spades']);
+        $suits_ace['Hearts']   = $this->reorder_ace($suits['Hearts']);
 
         $suits_ordered = [];
-        $suits_ordered['Clubs'] = $this->order_face_cards($suits_ace['Clubs']);
+        $suits_ordered['Clubs']    = $this->order_face_cards($suits_ace['Clubs']);
         $suits_ordered['Diamonds'] = $this->order_face_cards($suits_ace['Diamonds']);
-        $suits_ordered['Spades'] = $this->order_face_cards($suits_ace['Spades']);
-        $suits_ordered['Hearts'] = $this->order_face_cards($suits_ace['Hearts']);
+        $suits_ordered['Spades']   = $this->order_face_cards($suits_ace['Spades']);
+        $suits_ordered['Hearts']   = $this->order_face_cards($suits_ace['Hearts']);
 
         $output = array_merge($suits_ordered['Clubs'], $suits_ordered['Diamonds'], $suits_ordered['Spades'], $suits_ordered['Hearts']);
 
         return $output;
     }
+
+    /**
+     * Build JSON output from the object array of cards
+     *
+     * @return json
+     **/
+    public function buildJson($data)
+    {
+
+        foreach ($data as $item) {
+            $list[] = ['suit' => $item->suit, 'value' => $item->value];
+        }
+        $output = json_encode($list);
+
+        return $output;
+    }
+
 }

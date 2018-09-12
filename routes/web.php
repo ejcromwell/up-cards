@@ -13,12 +13,7 @@
 
 use App\Deck;
 
-Route::get('/', function () {
+Route::get('/', 'DeckController@index');
 
-    $deck = new Deck();
-    $deck_of_cards = $deck->get_fresh_deck();
-    $shuffled_cards = $deck->shuffled_deck();
-    $reordered_cards = $deck->order_deck($shuffled_cards);
+Route::get('/shuffle', 'DeckController@shuffle');
 
-   return view('welcome', compact('deck_of_cards', 'shuffled_cards', 'reordered_cards'));
-});
