@@ -185,4 +185,5 @@ class Deck extends Model
 
         return $output;
     }
+
 }

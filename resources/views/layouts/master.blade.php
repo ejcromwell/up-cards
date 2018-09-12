@@ -25,7 +25,7 @@
 
         <a class="btn btn-secondary card-section-btn" id="shuffle-btn" href="">Shuffle Cards</a>
 
-        <div class="card-wrap">
+        <div class="card-wrap" id="shuffle-card-wrap">
 
             @foreach ($shuffled_cards as $card)
 

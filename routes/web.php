@@ -22,3 +22,7 @@ Route::get('/', function () {
 
    return view('layouts.master', compact('deck_of_cards', 'shuffled_cards', 'reordered_cards'));
 });
+
+
+Route::get('/shuffle', 'DeckController@index');
+

@@ -13897,9 +13897,44 @@ __webpack_require__(13);
 
 (function ($) {
 
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+
+    /* Build out html for card content
+    ---------------------------------------------------------------*/
+    var buildCard = function buildCard(response) {
+        var cards = [];
+        for (var i = response.length - 1; i >= 0; i--) {
+            var html = '\n                <div class="card">\n                    <div class="card-suit-top">\n                        ' + response[i].value + '\n                    </div>\n                    <div class="card-value">\n                        ' + response[i].suit + '\n                    </div>\n                    <div class="card-suit-bottom">\n                        ' + response[i].value + '\n                    </div>\n                </div>\n            ';
+            cards.push(html);
+        }
+        return cards;
+    };
+
+    /* Crate ajax call to shuffle controller
+    ---------------------------------------------------------------*/
+    var ajaxCall = function ajaxCall() {
+        $.ajax({
+            method: 'GET',
+            url: '/shuffle',
+            success: function success(response) {
+                var output = buildCard(JSON.parse(response));
+                $('#shuffle-card-wrap').html(output);
+            },
+            error: function error(jqXHR, textStatus, errorThrown) {
+                //
+            }
+        });
+    };
+
+    /* Create click function to trigger shuffle call
+    ---------------------------------------------------------------*/
     $("#shuffle-btn").on('click', function (e) {
         e.preventDefault();
-        alert('hello');
+        ajaxCall();
     });
 })(jQuery);
 
