@@ -63,5 +63,4 @@ require('./bootstrap');
     });
 
 
-
 })(jQuery);

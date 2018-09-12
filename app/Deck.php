@@ -186,4 +186,20 @@ class Deck extends Model
         return $output;
     }
 
+    /**
+     * Build JSON output from the object array of cards
+     *
+     * @return json
+     **/
+    public function buildJson($data)
+    {
+
+        foreach ($data as $item) {
+            $list[] = ['suit' => $item->suit, 'value' => $item->value];
+        }
+        $output = json_encode($list);
+
+        return $output;
+    }
+
 }

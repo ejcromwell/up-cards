@@ -10,11 +10,9 @@ class DeckController extends Controller
     public function index(Deck $deck)
     {
         $new_deck = $deck->get_fresh_deck();
-        $data = $deck->shuffle_deck($new_deck);
-        foreach ($data as $item) {
-            $list[] = ['suit' => $item->suit, 'value' => $item->value];
-        }
-        $output = json_encode($list);
+        $data     = $deck->shuffle_deck($new_deck);
+        $output   = $deck->buildJson($data);
+
         return $output;
     }
 }
